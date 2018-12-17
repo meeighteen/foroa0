@@ -11,14 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as'=>'start','uses'=> 'PagesController@start']);
 
-Route::get('miperfil', function(){
-	return "Aqui se verá el perfil junto con las publicaciones de articulos que hayan creado";
-});
+Route::get('miperfil', ['as'=>'miperfil', 'uses'=>'PagesController@miperfil']);
 
-Route::get('feed',function(){
-	return "Aquí se verá todos los post que se hayan publicado";
-});
+Route::get('feed',['as'=>'feed', 'uses'=>'PagesController@feed']);
+
+Route::post('publicar','PagesController@publicar');
+
+Route::get('postear', ['as'=>'postear', 'uses'=>'PagesController@postear'] );
